@@ -13,6 +13,7 @@ class ProductController extends AbstractController
     public function index(int $id, AnnoncesRepository $repos): Response
     {
         $annonce = $repos->find($id);
+        $liste = $repos->findAll();
 
         // Vérifier si un produit avec cet ID a été trouvé
         if (!$annonce) {
@@ -21,6 +22,7 @@ class ProductController extends AbstractController
 
         return $this->render('product/index.html.twig', [
             'annonce' => $annonce,
+            'annonces' => $liste,
         ]);
         
     }
