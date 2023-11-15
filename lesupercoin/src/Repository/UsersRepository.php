@@ -21,6 +21,13 @@ class UsersRepository extends ServiceEntityRepository
         parent::__construct($registry, Users::class);
     }
 
+    public function save(Users $users): void
+    {
+        $entityManager = $this->getEntityManager();
+        $entityManager->persist($users);
+        $entityManager->flush();
+    }
+
 //    /**
 //     * @return Users[] Returns an array of Users objects
 //     */

@@ -1,0 +1,30 @@
+{# forms/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section class="py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <h1>Ajouter une annonce </h1>
+
+        {{ form_start(form) }}
+        
+        <div class="mb-3">
+            {{ form_row(form.title, {'attr': {'class': 'form-control', 'placeholder': 'Titre'}}) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_row(form.prix, {'attr': {'class': 'form-control', 'placeholder': 'Prix'}}) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_row(form.content, {'attr': {'class': 'form-control', 'placeholder': 'Description'}}) }}
+        </div>
+
+        {{ form_row(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+
+        {{ form_end(form) }}
+    </div>
+</section>
+        
+{% endblock %}

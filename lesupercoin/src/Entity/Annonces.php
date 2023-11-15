@@ -30,7 +30,7 @@ class Annonces
     private ?\DateTimeInterface $updatedat = null;
 
     #[ORM\ManyToOne(inversedBy: 'annonces')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Categories $categories = null;
 
     public function getId(): ?int

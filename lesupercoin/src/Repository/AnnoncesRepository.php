@@ -21,6 +21,14 @@ class AnnoncesRepository extends ServiceEntityRepository
         parent::__construct($registry, Annonces::class);
     }
 
+    public function save(Annonces $annonces): void
+    {
+        $entityManager = $this->getEntityManager();
+        $entityManager->persist($annonces);
+        $entityManager->flush();
+    }
+
+
 //    /**
 //     * @return Annonces[] Returns an array of Annonces objects
 //     */
