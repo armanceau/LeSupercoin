@@ -19,4 +19,12 @@ class DefaultController extends AbstractController
             'annonces' => $liste,
         ]);
     }
+
+    #[Route('/about', name: 'app_about')]
+    public function about(): Response
+    {
+        return $this->render('default/about.html.twig',[
+            
+        ]);
+    }
 }

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DefaultController!{% endblock %}
+
+{% block body %}
+<style>
+.line{
+    height: 48vh;
+    width: 1px;
+}
+.divLine{
+    width: 10%;
+}
+.left{
+    width: 45%;
+}
+.right{
+    width: 45%;
+    text-align: center;
+}
+.container-about{
+    height: 54vh;
+}
+</style>
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5 d-flex align-items-center w-100 container-about" style="flex-direction: row;">
+        <div class="left">
+            <h2>LeSuperCoin - Votre Destination pour les Bonnes Affaires! ✈️ </h2>
+        </div>
+
+        <div class="divLine d-flex justify-content-center align-items-center">
+            <div class="line bg-dark rounded-pill"></div>
+        </div>
+        
+
+        <div class="right h-100 d-flex justify-content-center align-items-center gap-3" style="flex-direction: column;">
+            <div>
+                Découvrez une expérience d'achat et de vente exceptionnelle sur Le SuperCoin, la plateforme en ligne où les particuliers 
+                peuvent acheter et vendre une variété d'articles, des objets de collection aux articles du quotidien, en passant par les 
+                biens immobiliers.
+            </div>
+            <div>
+                <a class="btn btn-outline-dark" href="{{path('app_contact')}}">          
+                    <i class="bi bi-phone-fill me-1"></i>
+                    Contact
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
