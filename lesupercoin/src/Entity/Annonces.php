@@ -31,7 +31,7 @@ class Annonces
 
     #[ORM\ManyToOne(inversedBy: 'annonces')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?categories $categories = null;
+    private ?Categories $categories = null;
 
     public function getId(): ?int
     {
@@ -98,12 +98,12 @@ class Annonces
         return $this;
     }
 
-    public function getCategories(): ?categories
+    public function getCategories(): ?Categories
     {
         return $this->categories;
     }
 
-    public function setCategories(?categories $categories): static
+    public function setCategories(?Categories $categories): static
     {
         $this->categories = $categories;
 
