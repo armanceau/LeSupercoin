@@ -1,6 +1,6 @@
-{# forms/index.html.twig #}
-
 {% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
 
 {% block body %}
 <style>
@@ -22,34 +22,36 @@
 <section class="">
     <div class="container px-4 px-lg-5 mt-5 d-flex align-items-center w-100 container-about" style="flex-direction: row;">
         <div class="left">
-            <h1>Formulaire d'inscription </h1>
+            <h1>Register</h1>
 
-            {{ form_start(form) }}
+            {{ form_errors(registrationForm) }}
+
+            {{ form_start(registrationForm) }}
+            <div class="mb-3 w-50">
+                {{ form_row(registrationForm.email) }}
+            </div>
+
+            <div class="mb-3 w-50">
+                {{ form_row(registrationForm.plainPassword, {
+                    label: 'Password'
+                }) }}
+            </div>
+
+            <div class="mb-3 w-50">
+                {{ form_row(registrationForm.agreeTerms) }}
+            </div>
             
-            <div class="mb-3 w-50">
-                {{ form_row(form.nom, {'attr': {'class': 'form-control', 'placeholder': 'John'}}) }}
-            </div>
-    
-            <div class="mb-3 w-50">
-                {{ form_row(form.prenom, {'attr': {'class': 'form-control', 'placeholder': 'Doe'}}) }}
-            </div>
-    
-            <div class="mb-3 w-50">
-                {{ form_row(form.password, {'attr': {'class': 'form-control', 'placeholder': '********'}}) }}
-            </div>
-    
-            {{ form_row(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
-    
-            {{ form_end(form) }}
+            <button type="submit" class="btn btn-outline-dark">S'inscrire</button>
+            {{ form_end(registrationForm) }}
         </div>
+
         <div class="divLine d-flex justify-content-center align-items-center">
             <div class="line bg-dark rounded-pill"></div>
         </div>
         <div class="right">
             <img src="{{ asset('img/registerwebp.webp') }}" alt="Description de l'image">
         </div>
-        
+
     </div>
 </section>
-        
 {% endblock %}

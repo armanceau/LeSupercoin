@@ -10,15 +10,15 @@
         {{ form_start(form) }}
         
         <div class="mb-3">
-            {{ form_row(form.title, {'attr': {'class': 'form-control', 'placeholder': 'Titre'}}) }}
+            {{ form_row(form.title, {'attr': {'class': 'form-control', 'placeholder': 'Mon annonce'}}) }}
         </div>
 
         <div class="mb-3">
-            {{ form_row(form.prix, {'attr': {'class': 'form-control', 'placeholder': 'Prix'}}) }}
+            {{ form_row(form.prix, {'attr': {'class': 'form-control', 'placeholder': '50'}}) }}
         </div>
 
         <div class="mb-3">
-            {{ form_row(form.content, {'attr': {'class': 'form-control', 'placeholder': 'Description'}}) }}
+            {{ form_row(form.content, {'attr': {'class': 'form-control', 'placeholder': 'Ma description ...'}}) }}
         </div>
 
         {{ form_row(form.save, {'attr': {'class': 'btn btn-primary'}}) }}

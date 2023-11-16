@@ -52,7 +52,6 @@ class ProductController extends AbstractController
     {
 
         $annonces = $repos->find($id);
-        
 
         // Crée le formulaire Symfony
         $form = $this->createFormBuilder($annonces)
