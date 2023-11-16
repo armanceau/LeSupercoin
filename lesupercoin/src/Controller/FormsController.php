@@ -68,6 +68,7 @@ class FormsController extends AbstractController
             // Utilisez le repository pour enregistrer les données en base de données
             $reposAnnonces->save($formData);
 
+            $this->addFlash('success', "l'annonce a bien été ajoutée !");
             // Redirige vers une autre page ou affiche un message de réussite
             return $this->redirectToRoute('app_default');
         }
