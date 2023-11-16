@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\CategoriesRepository;
@@ -39,6 +40,11 @@ class FormsController extends AbstractController
                 'label' => "Description de votre annonce :",
                 'attr' => ['rows' => 4], // Ajoute la classe Bootstrap 'form-control' à l'input
             ])
+            ->add('categories', EntityType::class, [
+                'label' => "Catégorie votre annonce :",
+                'class' => Categories::class,
+                'choice_label' => "libelle",
+            ])
             ->add('save', SubmitType::class, [
                 'label' => 'Créer une annonce',
                 'attr' => ['class' => 'btn btn-primary'], // Ajoute la classe Bootstrap 'btn btn-primary' au bouton
@@ -48,9 +54,9 @@ class FormsController extends AbstractController
         $annonces->setCreatedat(new \DateTimeImmutable('tomorrow'));
         $annonces->setUpdatedat(new \DateTimeImmutable('tomorrow'));
 
-        $test = $reposCategories->find(1);
+        // $test = $reposCategories->find(1);
 
-        $annonces->setCategories($test);
+        // $annonces->setCategories($test);
 
         // Gère la soumission du formulaire
         $form->handleRequest($request);

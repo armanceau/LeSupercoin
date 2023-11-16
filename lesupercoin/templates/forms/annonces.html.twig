@@ -3,27 +3,55 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<section class="py-5">
-    <div class="container px-4 px-lg-5 my-5">
-        <h1>Ajouter une annonce </h1>
+<style>
+    .line{
+        height: 48vh;
+        width: 0.7px;
+    }
+    .divLine{
+        width: 10%;
+    }
+    .left{
+        width: 45%;
+    }
+    .right{
+        width: 45%;
+        text-align: center;
+    }
+</style>
+<section class="">
+    <div class="container px-4 px-lg-5 mt-5 d-flex align-items-center w-100 container-about" style="flex-direction: row;">
+        <div class="left">
+            <h1>Ajouter une annonce </h1>
 
-        {{ form_start(form) }}
-        
-        <div class="mb-3">
-            {{ form_row(form.title, {'attr': {'class': 'form-control', 'placeholder': 'Mon annonce'}}) }}
+            {{ form_start(form) }}
+            
+            <div class="mb-3">
+                {{ form_row(form.title, {'attr': {'class': 'form-control', 'placeholder': 'Mon annonce'}}) }}
+            </div>
+
+            <div class="mb-3">
+                {{ form_row(form.prix, {'attr': {'class': 'form-control', 'placeholder': '50'}}) }}
+            </div>
+
+            <div class="mb-3">
+                {{ form_row(form.content, {'attr': {'class': 'form-control', 'placeholder': 'Ma description ...'}}) }}
+            </div>
+
+            <div class="mb-3">
+                {{ form_row(form.categories, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            {{ form_row(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+
+            {{ form_end(form) }}
         </div>
-
-        <div class="mb-3">
-            {{ form_row(form.prix, {'attr': {'class': 'form-control', 'placeholder': '50'}}) }}
+        <div class="divLine d-flex justify-content-center align-items-center">
+            <div class="line bg-dark rounded-pill"></div>
         </div>
-
-        <div class="mb-3">
-            {{ form_row(form.content, {'attr': {'class': 'form-control', 'placeholder': 'Ma description ...'}}) }}
+        <div class="right">
+            <img src="{{ asset('img/product.webp') }}" alt="Description de l'image">
         </div>
-
-        {{ form_row(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
-
-        {{ form_end(form) }}
     </div>
 </section>
         
