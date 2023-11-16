@@ -1,7 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello ProductController!{% endblock %}
-
+{% block stylesheets %}
+<style>
+    .footer{
+        position: absolute;
+        width: 100%;
+    }
+</style>
+{% endblock %}
 {% block body %}
     <!-- Product section-->
     <section class="py-5">
@@ -15,12 +22,30 @@
                         <span>{{annonce.prix}}</span>
                     </div>
                     <p class="lead">{{annonce.content}}</p>
-                    <div class="d-flex">
-                        <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
-                        <button class="btn btn-outline-dark flex-shrink-0" type="button">
-                            <i class="bi-cart-fill me-1"></i>
-                            Add to cart
-                        </button>
+                    <div class="d-flex gap-3">
+                        <div>
+                            <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                                <i class="bi-cart-fill me-1"></i>
+                                Add to cart
+                            </button>
+                        </div>
+
+                        <div>
+                            <a class="btn btn-outline-danger" href="{{ path('app_product_delete', {id: annonce.id}) }}" onclick="return confirm('Etes vous sur de vouloir supprimer cette annonce ?')">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </div>
+
+                        <div>
+                            <a class="btn btn-outline-primary" href="{{ path('app_product_edit', {id: annonce.id}) }}">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                        </div>
+
+                        
+                        
+                        
+                        
                     </div>
                 </div>
             </div>

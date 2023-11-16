@@ -28,6 +28,12 @@ class AnnoncesRepository extends ServiceEntityRepository
         $entityManager->flush();
     }
 
+    public function remove(Annonces $annonces): void
+    {
+        $entityManager = $this->getEntityManager();
+        $entityManager->remove($annonces);
+        $entityManager->flush();
+    }
 
 //    /**
 //     * @return Annonces[] Returns an array of Annonces objects

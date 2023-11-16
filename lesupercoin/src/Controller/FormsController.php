@@ -10,6 +10,7 @@ use App\Entity\Annonces;
 use App\Entity\Categories;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\HttpFoundation\Request;
 use App\Repository\UsersRepository;
@@ -72,14 +73,14 @@ class FormsController extends AbstractController
             ->add('title', TextType::class, [
                 'attr' => ['class' => 'form-control'], // Ajoute la classe Bootstrap 'form-control' à l'input
             ])
-            ->add('prix', TextType::class, [
+            ->add('prix', IntegerType::class, [
                 'attr' => ['class' => 'form-control'], // Ajoute la classe Bootstrap 'form-control' à l'input
             ])
             ->add('content', TextType::class, [
                 'attr' => ['class' => 'form-control'], // Ajoute la classe Bootstrap 'form-control' à l'input
             ])
             ->add('save', SubmitType::class, [
-                'label' => 'Créer une anonce',
+                'label' => 'Créer une annonce',
                 'attr' => ['class' => 'btn btn-primary'], // Ajoute la classe Bootstrap 'btn btn-primary' au bouton
             ])
             ->getForm();

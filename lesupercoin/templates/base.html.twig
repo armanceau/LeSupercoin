@@ -13,6 +13,13 @@
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
+            <style>
+                .footer{
+                    position: absolute;
+                    width: 100%;
+                    bottom: 0;
+                }
+            </style>
         {% endblock %}
 
         {% block javascripts %}
@@ -20,6 +27,7 @@
         {% endblock %}
     </head>
     <body>
+        
         {% block nav %}
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -67,7 +75,7 @@
 
         {% block footer %}
         <!-- Footer-->
-            <footer class="py-5 bg-dark">
+            <footer class="py-5 bg-dark footer">
                 <div class="container"><p class="m-0 text-center text-white">Copyright &copy; LeSuperCoin 2023</p></div>
             </footer>
         {% endblock %}

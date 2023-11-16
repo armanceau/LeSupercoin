@@ -1,8 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello DefaultController!{% endblock %}
-
+{% block stylesheets %}
+<style>
+    .footer{
+        position: absolute;
+        width: 100%;
+    }
+</style>
+{% endblock %}
 {% block body %}
+
 <!-- Header-->
 <header class="bg-dark py-5">
     <div class="container px-4 px-lg-5 my-5">
@@ -29,7 +37,7 @@
                             <!-- Product price-->
                             {{annonce.prix}}€
                             <br>
-                            Posté le : {{annonce.createdat|date("d/m/Y")}}
+                            Posté le : {{annonce.updatedat|date("d/m/Y")}}
                         </div>
                     </div>
                     <!-- Product actions-->
@@ -46,3 +54,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
 {% endblock %}
+
