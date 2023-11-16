@@ -22,24 +22,59 @@
 <section class="">
     <div class="container px-4 px-lg-5 mt-5 d-flex align-items-center w-100 container-about" style="flex-direction: row;">
         <div class="left">
-            <h1>Register</h1>
+            <div>
+                <a class="btn btn-outline-dark" href="{{path('app_register')}}">          
+                    <i class="bi bi-plus-circle-fill me-1"></i>
+                    Inscription
+                </a>
+                <a class="btn btn-outline-dark" href="{{path('app_login')}}">          
+                    <i class="bi bi-door-open-fill me-1"></i>
+                    Connexion
+                </a>
+            </div>
+            <br>
+            <h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
 
             {{ form_errors(registrationForm) }}
 
             {{ form_start(registrationForm) }}
             <div class="mb-3 w-50">
-                {{ form_row(registrationForm.email) }}
+                {{ form_row(registrationForm.email, {
+                    label: 'Votre email :',
+                    attr: {
+                        'class': 'form-control'
+                    }
+                }) }}
             </div>
+            
 
             <div class="mb-3 w-50">
                 {{ form_row(registrationForm.plainPassword, {
-                    label: 'Password'
+                    label: 'Votre mot de passe :',
+                    attr: {
+                        'class': 'form-control'
+                    }
                 }) }}
             </div>
 
             <div class="mb-3 w-50">
-                {{ form_row(registrationForm.agreeTerms) }}
+                <div class="form-check">
+                    {{ form_widget(registrationForm.agreeTerms, {
+                        'attr': {
+                            'class': 'form-check-input'
+                        }
+                    }) }}
+                    <label class="form-check-label" for="{{ registrationForm.agreeTerms.vars.id }}">
+                        J'accepte les termes et conditions
+                    </label>
+                </div>
+                {% if registrationForm.agreeTerms.vars.errors|length > 0 %}
+                    <div class="invalid-feedback">
+                        {{ registrationForm.agreeTerms.vars.errors|first.message }}
+                    </div>
+                {% endif %}
             </div>
+            
             
             <button type="submit" class="btn btn-outline-dark">S'inscrire</button>
             {{ form_end(registrationForm) }}

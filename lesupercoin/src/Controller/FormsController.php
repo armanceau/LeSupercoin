@@ -69,5 +69,7 @@ class FormsController extends AbstractController
         return $this->render('forms/annonces.html.twig', [
             'form' => $form->createView(),
         ]);
+
+        
     }
 }
